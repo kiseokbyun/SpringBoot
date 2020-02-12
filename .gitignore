@@ -1,9 +1,18 @@
 .gradle
+.settings/
 build/
 !gradle-wrapper.jar
 
+# Eclipse
+.project
+.classpath
+
+# OS Files
+.DS_Store
+
 # Compiled class file
 *.class
+/bin/
 
 # Log file
 *.log
