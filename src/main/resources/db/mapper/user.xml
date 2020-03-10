@@ -2,8 +2,33 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="user">
-    <select id="getAllUsers" parameterType="string" resultType="com.ksbyun.study.demo.user.model.UserVO">
-        SELECT * FROM t_user
-        WHERE id = #{id};
+    <insert id="saveUser" parameterType="com.ksbyun.study.demo.user.model.User">
+        INSERT INTO t_user (login_id, login_pw)
+        VALUES (#{loginId}, #{loginPw});
+    </insert>
+    
+    <select id="findUserById" parameterType="string" resultType="com.ksbyun.study.demo.user.model.User">
+        SELECT
+            sid,
+            login_id loginId,
+            login_pw loginPw
+        FROM
+            t_user
+        WHERE
+            login_id = #{loginId}
     </select>
+    
+    <update id="updateUser" parameterType="com.ksbyun.study.demo.user.model.User">
+        UPDATE t_user
+        SET
+            login_pw = #{loginPw}
+        WHERE
+            login_id = #{loginId}
+    </update>
+    
+    <delete id="deleteUser" parameterType="string">
+        DELETE FROM t_user
+        WHERE
+            login_id = #{loginId}
+    </delete>
 </mapper>

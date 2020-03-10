@@ -1,5 +1,7 @@
 package com.ksbyun.study.demo.user.model;
 
+import java.math.BigInteger;
+
 import javax.validation.constraints.NotNull;
 
 import lombok.Getter;
@@ -7,9 +9,11 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class UserVO {
+public class User {
+    private BigInteger sid;
     @NotNull
-    private String id;
+    private String loginId;
     @NotNull
-    private String password;
+    private String loginPw;
+    
 }
